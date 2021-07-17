@@ -1,6 +1,6 @@
 "use strict";
 
-let numberOfFilms = 10;
+let numberOfFilms = prompt("Скільки фільмів ви вже переглянули?");
 let personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -9,12 +9,29 @@ let personalMovieDB = {
     privat: false,
 };
 
-let a = "Dacia",
-    b = 5,
-    c = "Logan",
-    d = 6;
+if (personalMovieDB.count < 10) {
+    alert("Ви переглянули досить мало фільмів");
+} else if (personalMovieDB.count <= 30) {
+    alert("Ви класичний глядач");
+} else if (personalMovieDB.count > 30) {
+    alert("Ви кіноман");
+} else {
+    alert("Помилка");
+}
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+let a, b;
+let i = 0;
+do {
+    a = prompt("Один з останніх переглянутих фільмів:");
+    b = prompt("Скільки балів ви йому даєте?");
+    if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log("done");
+    } else {
+        console.log("error");
+        i--;
+    }
+    i++;
+} while (i < 2);
 
 console.log(personalMovieDB);
